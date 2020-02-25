@@ -1,14 +1,7 @@
-const express=require('express');
+const http = require('http');
+const app = require('./app');
 
-const app=express();
-var a=['Sarthak','Giridhar','Naman','Diya',"Ankit"];
-app.get("/name", (req,res)=>{
-  res.send("Ankit Jha");
-});
-app.get("/team", (req,res)=>{
-  res.send(a);
-});
 
-app.listen(3000,function(){
-  console.log("server added on port 3000");
-});
+const port=process.env.PORT||3000;
+const server=http.createServer(app);
+server.listen(port);
